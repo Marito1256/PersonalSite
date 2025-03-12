@@ -1,0 +1,91 @@
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Navbar Styles */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(33, 37, 41, 0.95);
+}
+
+.iframeElement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.responsive-gif {
+    width:90%;
+    max-width: 600px;
+    height:auto;
+    border-radius: 8px;    
+}
+/* Project Cards */
+.project-card {
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.tech-stack {
+    margin-top: 1rem;
+}
+
+.tech-stack .badge {
+    margin-right: 0.5rem;
+    /* color: black; */
+}
+.badgeBackground{
+    background-color: #495057;
+}
+/* Skills Progress Bars */
+.progress {
+    height: 10px;
+    background-color: var(--bs-dark);
+}
+
+.progress-bar {
+    background-color: var(--bs-info);
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+/* Social Links */
+.social-links a {
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+    }
+}
