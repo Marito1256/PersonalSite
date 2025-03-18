@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorge España - Key Store</title>
+    <title>Jorge España - Discord bot</title>
     <link href="/static/css/style.css" rel="stylesheet">
     <link href="static/css/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -30,21 +31,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h1 class="mb-4">Secure Module / Key Management Application</h1>
+                    <h1 class="mb-4">Discord Moderation and Meme Bot</h1>
                     <div class="mb-4">
-                        <span class="badge badgeBackground">ASP.NET Core</span>
-                        <span class="badge badgeBackground">Microsoft SQL Server</span>
-                        <span class="badge badgeBackground">Azure Key Vault</span>
-                        <span class="badge badgeBackground">AES & RSA Encryption</span>
-                        <span class="badge badgeBackground">HTTPS</span>
-                        <span class="badge badgeBackground">MVC</span>
+                        <span class="badge badgeBackground">JavaScript</span>
+                        <span class="badge badgeBackground">JSON</span>
+                        <span class="badge badgeBackground">Discord library</span>
                     </div>
                     <h2 class="mb-3">Project Overview</h2>
-                    <p>The Secure Module/Key Management Application is designed to facilitate secure data transfer
-                        between
-                        servers across various domains. Utilizing HTTPS for data transfer, it focuses on encrypting
-                        logged HTTP activity,
-                        ensuring data integrity and confidentiality.
+                    <p>Discord bot I built in 2019 to moderate swear words in sfw channels. I had to update the 
+                        bot's programming in 2025 due to deprecated discord functions and an outdated command
+                        structure. 
                     </p>
                     <br></br>
                     <!-- <div class="iframeElement">
@@ -57,22 +53,15 @@
                     </div>
                     <br></br>
                     <h2 class="mb-3"> Technical Design </h2>
-                    <p>This ASP.NET Core MVC project follows a layered architecture with user authentication, encryption
-                         for keys and other secrets, and a remote Azure SQL Database. The database, hosted on Azure SQL
-                         Server, stores users and manages authentication via ASP.NET Identity.
+                    <p>The bot is programmed entirely in javascript and runs on NodeJS. Deployed using Docker to my personal server.
+                        Secrets are kept in a .env file which is included in the .gitignore to prevent leaked secrets. 
+                        Dictionary of swear words was retrieved from <a href = "http://www.bannedwordlist.com/"> http://www.bannedwordlist.com/ </a>
                     </p>
-
                     <h2 class="mb-3 mt-5">Use Cases</h2>
                     <ul class="list-group list-group-flush mb-5">
-                        <li class="list-group-item">1. Secure Data Transfer Within Trusted Domain: Ensures safe and
-                            encrypted communication internally.
-                        </li>
-                        <li class="list-group-item">2.  Transmission Between Trusted and Untrusted Domains: Extends
-                            secure communication capabilities with external domains, maintaining encryption standards.
-                        </li>
-                        <li class="list-group-item">3. Key Encryption Methods: Incorporating AES and RSA encryption for
-                            secure data handling.
-                        </li>
+                        <li class="list-group-item">Moderates user messages to detect inappropriate language on sfw channels</li>
+                        <li class="list-group-item">Includes some fun commands to promote friendly banter without profane or bigoted language</li>
+                        <li class="list-group-item">Helps to keep track of aggressive users </li>
                     </ul>
 
                     <h2 class="mb-3 mt-5">Technical Implementation</h2>
@@ -93,9 +82,6 @@
                     <div class="mt-5">
                         <a href="/static/files/QTC.zip" class="btn btn-outline-light me-3" download>
                             <i class="fab fa-github me-2"></i>View Source Code
-                        </a>
-                        <a href="/static/files/Secure Module_Key Management Application SDD.docx.pdf" class="btn btn-outline-light me-3" download>
-                            <i class="fas fa-external-link-alt me-2"></i>Design Document
                         </a>
                         <a href="#" class="btn btn-outline-light">
                             <i class="fas fa-external-link-alt me-2"></i>Live Demo

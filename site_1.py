@@ -17,7 +17,7 @@ def viewResume():
     return render_template('resume.html')
 @app.route('/DiscordBot')
 def viewBot():
-    return render_template('MemeBot.html')#replace with actual html file later
+    return render_template('CleanBot.html')#replace with actual html file later
 if __name__ == '__main__':
     app.run(debug=True)
 #port is 5000 by default
