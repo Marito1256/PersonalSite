@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge España - Discord bot</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link href="static/css/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">JE</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="mb-4">Personal Website</h1>
+                    <div class="mb-4">
+                        <span class="badge badgeBackground">HTML</span>
+                        <span class="badge badgeBackground">CSS</span>
+                        <span class="badge badgeBackground">Javascript</span>
+                        <span class="badge badgeBackground">Python</span>
+                        <span class="badge badgeBackground">Flask</span>
+                        <span class="badge badgeBackground">Docker</span>
+                        <span class="badge badgeBackground">Powershell</span>
+                    </div>
+                    <h2 class="mb-3">Project Summary</h2>
+                    <p>This website serves as a personal portfolio, showcasing personal and student projects, displaying a resume, and
+                        providing contact information. It is designed to be easily deployable and maintainable, ensuring accessibility
+                        across different hosting environments.</p>
+                    <div class="iframeElement">
+                        <img src="/static/assets/Photos/MetaPhotos/StartScript.png" class="responsive-gif" width="auto" height="569"/>
+                    </div>
+                    <h2 class="mb-3">Architecture and Design</h2>
+                    <p>The website is built using <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b> for the frontend, with a <b>Flask</b> backend handling requests. It is
+                        containerized using <b>Docker</b>, allowing for seamless deployment across different servers. The architecture ensures
+                        flexibility and scalability while maintaining ease of deployment.</p>
+                    <h2 class="mb-3 mt-5">Technical Implementation</h2>
+                    <ul class="list-group list-group-flush mb-5">
+                        <li class="list-group-item"><b>Frontend</b>: Built with <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b></li>
+                        <li class="list-group-item"><b>Backend</b>: Powered by <b>Flask</b>, handling requests and serving content dynamically.
+                        <li class="list-group-item"><b>Server Management</b>:
+                            <ul>
+                                <li style="margin-bottom: 5px; margin-top: 5px;">
+                                    <b>Gunicorn</b> acts as the entrypoint for the docker container, starting the flask server and defining the port it will run on
+                                </li>
+                                <li>
+                                    <b>Flask</b> serves the website by processing incoming HTTP requests and handling the routing. 
+                                </li>
+                                <li style="margin-top: 5px;">
+                                    <b>NGINX</b> manages the reverse proxy, routing incoming traffic to the appropriate port
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item"><b>Containerization & Deployment</b>:
+                            <ul>
+                                <li style="margin-bottom: 5px; margin-top: 5px;">
+                                    The entire project is containerized with <b>Docker</b> for portability
+                                </li>
+                                <li style="margin-bottom: 5px; margin-top: 5px;">
+                                    <b>Docker Hub</b> hosts the container image for easy deployment
+                                </li>
+                                <li style="margin-bottom: 5px; margin-top: 5px;">
+                                    <b>A PowerShell Script</b> automates the process of building, tagging, and pushing the Docker image to Docker Hub 
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="iframeElement" >
+                        powershell script
+                        <img src="/static/assets/Photos/MetaPhotos/PowerShell.png" class="responsive-gif" width="auto" height="569" style="margin-top: 10px;"/>
+                    </div>
+                    <div class="mt-5">
+                        <a href="https://github.com/Marito1256/PersonalSite/" class="btn btn-outline-light me-3" target="_blank">
+                            <i class="fab fa-github me-2"></i>View Source Code
+                        </a>
+                        <a href="https://jmespana.dev" class="btn btn-outline-light" target="_blank" onclick="simulateMobileView()">
+                            <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

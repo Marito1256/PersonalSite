@@ -18,6 +18,9 @@ def viewResume():
 @app.route('/DiscordBot')
 def viewBot():
     return render_template('CleanBot.html')#replace with actual html file later
+@app.route('/PersonalSite')
+def viewSite():
+    return render_template('PersonalSite.html')#replace with actual html file later
 if __name__ == '__main__':
     app.run(debug=True)
 #port is 5000 by default

@@ -57,3 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+function simulateMobileView(){
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=375');
+    // console.log('eeeeee');
+}
