@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jorge España - Discord bot</title>
     <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <link href="static/css/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -53,7 +54,7 @@
                     </div>
                     <br></br>
                     <div class="iframeElement">
-                        <img src="/static/assets/Photos/DiscordBot/Joke2.png" class="responsive-gif" width="960" height="569"/>
+                        <img src="/static/assets/Photos/DiscordBot/joke.png" class="responsive-gif" width="960" height="569"/>
                     </div>
                     <br></br>
                     <h2 class="mb-3">Design Overview</h2>
@@ -70,21 +71,12 @@
 
                     <h2 class="mb-3 mt-5">Technical Implementation</h2>
                     <ul class="list-group list-group-flush mb-5">
-                        <li class="list-group-item">Microservices Architecture: Modular design for easy maintenance and
-                            scalability.
-                        </li>
-                        <li class="list-group-item">Azure Key Vault: Secure storage and management of secrets, keys, and
-                            certificates.
-                        </li>
-                        <li class="list-group-item">Microsoft SQL Server: Reliable database management system for data
-                            storage.
-                        </li>
-                        <li class="list-group-item">ASP.NET Core: Utilized alongside SQL Server and Azure Key Vault for
-                            robust application development.
-                        </li>
+                        <li class="list-group-item">The program is written in <b>Javascript</b> and runs on an instance of <b>NodeJS</b></li>
+                        <li class="list-group-item"><b>Docker:</b> The bot runs in a container for easy management</li>
+                        <li class="list-group-item"><b>Discord.js</b> is the library used to interact with the Discord API. registering slash commands and managing events.</li>
                     </ul>
                     <div class="mt-5">
-                        <a href="/static/files/QTC.zip" class="btn btn-outline-light me-3" download>
+                        <a href="https://github.com/Marito1256/CleanBot" class="btn btn-outline-light me-3">
                             <i class="fab fa-github me-2"></i>View Source Code
                         </a>
                         <a href="#" class="btn btn-outline-light">
