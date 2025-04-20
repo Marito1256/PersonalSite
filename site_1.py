@@ -21,6 +21,12 @@ def viewBot():
 @app.route('/PersonalSite')
 def viewSite():
     return render_template('PersonalSite.html')#replace with actual html file later
+@app.route('/SnakeGame')
+def playSnake():
+    return render_template('SnakeGame.html')
+@app.route('/Scraper')
+def viewScraper():
+    return render_template('Scraper.html')
 if __name__ == '__main__':
     app.run(debug=True)
 #port is 5000 by default

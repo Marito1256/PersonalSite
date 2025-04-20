@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorge España - Product Scraper</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="static/css/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">JE</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Details -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="mb-4">Product Scraper</h1>
+                    <div class="mb-4">
+                        <span class="badge badgeBackground">Python</span>
+                        <span class="badge badgeBackground">OpenAI</span>
+                        <span class="badge badgeBackground">HTML</span>
+                        <span class="badge badgeBackground">CSS</span>
+                        <span class="badge badgeBackground">Javascript</span>
+                    </div>
+                    <h2 class="mb-3">Project Summary</h2>
+                    <p>This python program searches multiple websites for the user's search term and extracts relevant
+                        information. The resulting information is then displayed in a webpage along with an AI generated
+                        summary of the data collection. The data is also output to an Excel file for further data
+                        analysis</p>
+                    <div class="iframeElement">
+                        <img src="/static/assets/Photos/ProductScraper/ScrapeResults.png" class="responsive-gif"
+                            width="auto" height="569" />
+                        <img src="/static/assets/Photos/ProductScraper/Excel.png" class="responsive-gif"
+                            width="auto" height="569" />
+                    </div>
+                    <br>
+                    <h2 class="mb-3">Architecture and Design</h2>
+                    <p>The program is built using <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b> for the frontend, with
+                        an underlying <b>python</b> script that handles all the logic. Several python libraries are used
+                        such as the official <b>OpenAI</b> API and <b>Undetected-Chromedriver</b> to avoid bot detection.</p>
+                    <h2 class="mb-3 mt-5">Technical Implementation</h2>
+                    <ul class="list-group list-group-flush mb-5">
+                        <li class="list-group-item"><b>Frontend</b>: Built with <b>HTML</b>, <b>CSS</b>, and
+                            <b>JavaScript</b>
+                        </li>
+                        <li class="list-group-item"><b>Python Libraries</b>:
+                            <ul>
+                                <li>
+                                    <b>OpenAI API</b> to prompt ChatGPT with tasks involving the dataset. 
+                                </li>
+                                <li>
+                                    <b>Undetected-Chromedriver</b> which is a fork of <b>Selenium</b> focused on evading bot detection
+                                </li>
+                                <li>
+                                    <b>Beautiful Soup</b> is used to parse the raw HTML and extract the information we want
+                                </li>
+                                <li>
+                                    <b>Panda</b> Exports the dataset to an excel file for manual evaluation later. 
+                                </li>
+                                <li>
+                                    <b>DotEnv</b> helps contain secrets to a .env file that is added to the .gitignore
+                                </li>
+                                <li>
+                                    <b>UserAgent</b> rotates the current user-agent in order to further avoid bot detection. 
+                                </li>
+                            </ul>
+                    <div class="mt-5">
+                        <a href="https://github.com/Marito1256/ProductScraper" class="btn btn-outline-light me-3"
+                            target="_blank">
+                            <i class="fab fa-github me-2"></i>View Source Code
+                        </a>
+                        <!-- <a href="https://jmespana.dev" class="btn btn-outline-light" target="_blank"
+                            onclick="simulateMobileView()">
+                            <i class="fas fa-external-link-alt me-2"></i>Live Demo
+                        </a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+        </div>
+    </footer>
+
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>
