@@ -19,6 +19,33 @@ body {
 .canvas{
     background-color: wheat;
 }
+#message {
+  text-align: center;
+  color: #f44336;
+  font-size: 1.5rem;
+  margin-top: 15px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#restart-button {
+  display: block;
+  margin: 20px auto;
+  background-color: #222;
+  color: #ccc;
+  border: 1px solid #444;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+#restart-button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #666;
+}
 /* Navbar Styles */
 .navbar {
     backdrop-filter: blur(10px);

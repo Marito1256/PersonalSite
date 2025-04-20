@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -27,8 +26,12 @@
         </div>
     </nav>
     <div style=" display :flex; justify-content: center; align-items: center;">
+        <canvas id="grid" width="600" height="600" style="position: absolute; z-index: 0;"></canvas>
         <canvas id="canvas" class="canvas" width="600" height="600" ></canvas>
     </div>
+    <div id="message"></div>
+    <button id="restart-button" style="display:none;" onclick="location.reload()">Restart</button>
+
     <!-- Footer -->
     <footer class="py-4 text-center">
         <div class="container">
