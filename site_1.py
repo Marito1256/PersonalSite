@@ -23,7 +23,7 @@ def viewSite():
     return render_template('PersonalSite.html')#replace with actual html file later
 @app.route('/SnakeGame')
 def playSnake():
-    return render_template('SnakeGame.html')
+    return render_template('Snakegame.html')
 @app.route('/Scraper')
 def viewScraper():
     return render_template('Scraper.html')
