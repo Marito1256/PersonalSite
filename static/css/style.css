@@ -119,6 +119,13 @@ body {
     transform: translateY(-3px);
 }
 
+.dropdown-menu.p-4 {
+    background-color: rgba(30, 30, 30, 0.95); /* soft dark background */
+    border: 1px solid #555; /* sleek outline */
+    border-radius: 12px; /* smooth rounded corners */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5); /* nice soft shadow */
+    backdrop-filter: blur(6px); /* slight glass effect */
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     h1 {

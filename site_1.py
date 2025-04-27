@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import psycopg2
 import os
 from dotenv import load_dotenv
@@ -16,12 +16,11 @@ DB_HOST = os.getenv("POSTGRES_HOST")
 DB_PORT = os.getenv("POSTGRES_PORT")
 
 SQLconnection = psycopg2.connect(
-    dbname = DB_NAME,
-    user = DB_USER,
-    password = DB_PASSWORD,
-    # host = DB_HOST,
-    host = '192.168.50.136',
-    port = DB_PORT
+        dbname='testdb',
+        user='silent',
+        password='password',
+        host='192.168.50.136',
+        port='5432'
 )
 #test connection
 
@@ -29,9 +28,11 @@ cursor1 = SQLconnection.cursor()
 cursor1.execute('SELECT version();')
 db_version = cursor1.fetchone()
 print(f"Connected to: {db_version}")
+cursor1.close()
+SQLconnection.close()
 #adding https support behind a reverse proxy
 #app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
-
+#FLask assumes get request if not specified
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -53,6 +54,35 @@ def playSnake():
 @app.route('/Scraper')
 def viewScraper():
     return render_template('Scraper.html')
+
+# API routes
+@app.route('/Login', methods=['POST'])
+def loginAttempt():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    with psycopg2.connect(
+        dbname='testdb',
+        user='silent',
+        password='password',
+        host='192.168.50.136',
+        port='5432'
+    ) as SQLconnection:
+        with SQLconnection.cursor() as cur:
+            # Correct the SQL syntax
+            cur.execute('''
+                SELECT *
+                FROM users;
+            ''')
+            rows = cur.fetchall()
+
+            # Print all tables
+            print("Existing tables in the database:")
+            for row in rows:
+                print(f"{row}")
+
+    return f"Trying to login as {username}?"
+
 if __name__ == '__main__':
     app.run(debug=True)
 #port is 5000 by default

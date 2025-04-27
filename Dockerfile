@@ -4,11 +4,13 @@ FROM python:3.10-slim
 # Set working directory
 WORKDIR /app
 
-# Copy files to container
-COPY . .
-
+COPY requirements.txt .
 # Install dependencies
 RUN pip install --no-cache-dir flask gunicorn
+RUN pip install -r requirements.txt
+
+# Copy files to container
+COPY . .
 
 #Expose Flask's deafualt port
 Expose 5000
