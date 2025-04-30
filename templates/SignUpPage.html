@@ -29,18 +29,19 @@
 <div class="container d-flex align-items-start justify-content-center" style="min-height: 100vh; padding-top: 15vh;">
     <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
         <h2 class="text-center mb-4">Create an account</h2>
-        <form method="POST" action="/SignUp">
+        <form id="signup-form" method="POST" action="/SignUp">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
             </div>
+            <div id ='loginError' class = 'alert alert-danger ' style = "margin-top: 15px;" ></div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
             </div>
             <div class="mb-3">
                 <label for="password-check" class="form-label">Re-enter Password</label>
-                <input type="password-check" class="form-control" id="password-check" name="password-check" placeholder="Enter password again" required>
+                <input type="password" class="form-control" id="password-check" name="password-check" placeholder="Enter password again" required>
             </div>
             <button type="submit" class="btn btn-primary w-100" style = "margin-top: 15px;">Login</button>
         </form>

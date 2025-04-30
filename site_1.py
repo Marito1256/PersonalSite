@@ -63,6 +63,7 @@ def signup():
 def signUp():
     newUser = request.form.get('username')
     newPass = request.form.get('password')
+    passCheck = request.form.get('password-check')
     with psycopg2.connect(
             dbname=DB_NAME,
             user=DB_USER,
@@ -82,6 +83,12 @@ def signUp():
                 print("ERROR USERNAME IS TAKEN")
                 print()
                 print()
+            else:
+                if(newPass == passCheck):
+                    cur.execute(
+                        "INSERT INTO users (username, password, role, created_at) VALUES (%s,%s,%s,NOW())",
+                        (newUser, newPass, "user")
+                    )
     return render_template('/SignUpPage.html')
 @app.route('/Login', methods=['POST'])
 def loginAttempt():
