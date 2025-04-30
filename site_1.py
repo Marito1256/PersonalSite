@@ -1,26 +1,26 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import psycopg2
 import os
 from dotenv import load_dotenv
 #from werkzeug.middleware.proxy_fix import ProxyFix
 
-#Loading environment variables from the env file (create this locally with the correct credentials)
-load_dotenv()
 
 app = Flask(__name__, static_folder="static")
 
+#Loading environment variables from the env file (create this locally with the correct credentials)
+load_dotenv()
+app.secret_key = os.getenv("SESSIONKEY")
 DB_NAME = os.getenv("POSTGRES_DB")
 DB_USER = os.getenv("POSTGRES_USER")
 DB_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 DB_HOST = os.getenv("POSTGRES_HOST")
 DB_PORT = os.getenv("POSTGRES_PORT")
-
 SQLconnection = psycopg2.connect(
-        dbname='testdb',
-        user='silent',
-        password='password',
-        host='192.168.50.136',
-        port='5432'
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT
 )
 #test connection
 
@@ -35,7 +35,8 @@ SQLconnection.close()
 #FLask assumes get request if not specified
 @app.route('/')
 def home():
-    return render_template('index.html')
+    username = session.get('username')
+    return render_template('index.html',username = username)
 @app.route('/QTC')
 def ITproject1():
     return render_template('QTC.html')
@@ -54,35 +55,75 @@ def playSnake():
 @app.route('/Scraper')
 def viewScraper():
     return render_template('Scraper.html')
-
+@app.route('/SignUpPage')
+def signup():
+    return render_template('/SignUpPage.html')
 # API routes
+@app.route('/SignUp', methods = ['POST'])
+def signUp():
+    newUser = request.form.get('username')
+    newPass = request.form.get('password')
+    with psycopg2.connect(
+            dbname=DB_NAME,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            host=DB_HOST,
+            port=DB_PORT
+        ) as SQLconnection:
+        passCheck = request.form.get('password-check')
+        with SQLconnection.cursor() as cur:
+            cur.execute(
+                "SELECT * FROM users WHERE username = %s",
+                (newUser,)
+            )
+            if(cur.fetchone() is not None):
+                print()
+                print()
+                print("ERROR USERNAME IS TAKEN")
+                print()
+                print()
+    return render_template('/SignUpPage.html')
 @app.route('/Login', methods=['POST'])
 def loginAttempt():
-    username = request.form.get('username')
-    password = request.form.get('password')
-
+    data = request.get_json()
+    username = data.get('username', '').strip()
+    password = data.get('password', '')
+    print(username)
+    print(password)
     with psycopg2.connect(
-        dbname='testdb',
-        user='silent',
-        password='password',
-        host='192.168.50.136',
-        port='5432'
+        dbname=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT
     ) as SQLconnection:
         with SQLconnection.cursor() as cur:
             # Correct the SQL syntax
-            cur.execute('''
-                SELECT *
-                FROM users;
-            ''')
-            rows = cur.fetchall()
-
-            # Print all tables
-            print("Existing tables in the database:")
-            for row in rows:
-                print(f"{row}")
+            cur.execute(
+                "SELECT * FROM users WHERE username = %s;",
+                (username,)
+            )
+            userRow = cur.fetchone()
+            print()
+            print()
+            if(userRow != None):
+                if(password == userRow[2]):
+                    session['user_id'] = userRow[0]
+                    session['username'] = userRow[1]
+                    session['role'] = userRow[3]
+                    return jsonify(success=True)
+                else:
+                    return jsonify(success = False, message = 'Incorrect Password'), 401
+            else:
+                    return jsonify(success = False, message = 'User does not exist'), 401
+            print()
+            print()
 
     return f"Trying to login as {username}?"
-
+@app.route('/Logout', methods=['POST'])
+def logout():
+    session.clear()
+    return redirect(url_for('home'))
 if __name__ == '__main__':
     app.run(debug=True)
 #port is 5000 by default

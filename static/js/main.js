@@ -64,3 +64,27 @@ function simulateMobileView(){
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=375');
     // console.log('eeeeee');
 }
+document.getElementById('loginForm').addEventListener('submit', async function (e){
+    e.preventDefault();
+    e.stopPropagation();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const response = await fetch('/Login', 
+        {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ username: username, password: password })
+        }
+    );
+
+    const result = await response.json();
+
+    if(result.success){
+        window.location.href = '/';
+    }
+    else{
+        const errorDiv = document.getElementById('loginError');
+        errorDiv.textContent = result.message;
+        errorDiv.classList.remove('d-none');
+    }
+});
