@@ -61,9 +61,12 @@ def signup():
 # API routes
 @app.route('/SignUp', methods = ['POST'])
 def signUp():
-    newUser = request.form.get('username')
-    newPass = request.form.get('password')
-    passCheck = request.form.get('password-check')
+    if not request.is_json:
+        return "Request was not JSON", 415  # <-- This helps confirm the issue
+    data = request.get_json()
+    newUser = data.get('username','').strip()
+    newPass = data.get('password','')
+    passCheck = data.get('passwordCheck', '')
     with psycopg2.connect(
             dbname=DB_NAME,
             user=DB_USER,
@@ -71,7 +74,6 @@ def signUp():
             host=DB_HOST,
             port=DB_PORT
         ) as SQLconnection:
-        passCheck = request.form.get('password-check')
         with SQLconnection.cursor() as cur:
             cur.execute(
                 "SELECT * FROM users WHERE username = %s",
@@ -83,12 +85,16 @@ def signUp():
                 print("ERROR USERNAME IS TAKEN")
                 print()
                 print()
+                return jsonify(success = False, message = 'usernameError')
             else:
                 if(newPass == passCheck):
                     cur.execute(
                         "INSERT INTO users (username, password, role, created_at) VALUES (%s,%s,%s,NOW())",
                         (newUser, newPass, "user")
                     )
+                    return jsonify(success = True, message='User successfully created')
+                else:
+                    return jsonify(success = False, message = 'passwordCheck')
     return render_template('/SignUpPage.html')
 @app.route('/Login', methods=['POST'])
 def loginAttempt():
